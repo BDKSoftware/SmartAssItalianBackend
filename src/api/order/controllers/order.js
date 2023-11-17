@@ -43,8 +43,30 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         cancel_url: "https://smart-ass-italian-frontend.vercel.app/", //Change to client url
         line_items: lineItems,
         shipping_address_collection: {
-          allowed_countries: ["US", "CA"],
+          allowed_countries: ["US"],
         },
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: "fixed_amount",
+              fixed_amount: {
+                amount: 1000,
+                currency: "usd",
+              },
+              display_name: "Free shipping",
+              delivery_estimate: {
+                minimum: {
+                  unit: "business_day",
+                  value: 5,
+                },
+                maximum: {
+                  unit: "business_day",
+                  value: 7,
+                },
+              },
+            },
+          },
+        ],
       });
 
       // create the item
