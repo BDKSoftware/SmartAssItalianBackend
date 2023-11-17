@@ -45,6 +45,17 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         shipping_address_collection: {
           allowed_countries: ["US", "CA"],
         },
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: "fixed_amount",
+              fixed_amount: {
+                amount: 1000,
+                currency: "usd",
+              },
+            },
+          },
+        ],
       });
 
       // create the item
