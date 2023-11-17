@@ -53,6 +53,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                 amount: 1000,
                 currency: "usd",
               },
+              display_name: "Ground shipping",
             },
           },
         ],
